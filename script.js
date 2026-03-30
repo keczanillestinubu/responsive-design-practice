@@ -28,6 +28,16 @@ async function getMultiplePictures(){
     }
 }
 
+function setupLayoutToggle() {
+    const checkbox = document.getElementById("columnLayout");
+    const imageContainer = document.getElementById("imageContainer");
+
+    checkbox.addEventListener("change", () => {
+        imageContainer.classList.toggle("column-layout", checkbox.checked);
+    });
+}
+
+
 function main(){
     const input = document.getElementById("pictureNumber");
 
@@ -40,5 +50,7 @@ function main(){
     getPictureButton.addEventListener("click", getPicture);
     const getMultiplePicturesButton = document.getElementById("getCustomPictures");
     getMultiplePicturesButton.addEventListener("click", getMultiplePictures);
+
+    setupLayoutToggle();
 }
 main()
