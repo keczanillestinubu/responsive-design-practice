@@ -8,15 +8,27 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+    <header class="intro">
+    <h1>Dog Picture Flexbox Demo</h1>
+    <p>
+        This small app lets you load one dog picture or multiple dog pictures
+        from an API. If you enter a number, the app will generate that many
+        images and place them into the gallery below.
+    </p>
+    <p>
+        The page also demonstrates the basics of Flexbox. Flexbox is a CSS
+        layout method that helps arrange elements in a row or column, control
+        spacing, wrap items into new lines, and align content more easily.
+    </p>
+</header>
     
     <div>
         <label for="pictureNumber">I want to get this many pictures:</label>
-        <input type="number" id="pictureNumber" name="pictureNumber">
+        <input type="number" id="pictureNumber" name="pictureNumber" min="1" max="10">
         <button id="getCustomPictures">Get this many pictures rigth now!</button>
     </div>
     <button id="getPictures">Get picture!</button>
-    <div class="container">
-        <img src="" alt="dog picture" id="dogPicture">
+    <div class="container" id="singleImage">
     </div>
     <div class="container" id="imageContainer">
     </div>
