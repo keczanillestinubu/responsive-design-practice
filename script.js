@@ -1,14 +1,28 @@
-async function getPicture(){
+async function getPicture() {
     const dogApiUrl = "https://dog.ceo/api/breeds/image/random";
     const response = await fetch(dogApiUrl);
     const dogImage = await response.json();
+
     const dogElement = document.createElement("img");
     dogElement.src = dogImage.message;
     dogElement.alt = "dog picture";
-    const container = document.getElementById("singleImage");
-    container.innerHTML= "";
+
+    const widthInput = document.getElementById("pictureWidth");
+    const roundedCheckbox = document.getElementById("roundedImage");
+
+    dogElement.style.width = `${widthInput.value}px`;
+
+    if (roundedCheckbox.checked) {
+        dogElement.style.borderRadius = "16px";
+    } else {
+        dogElement.style.borderRadius = "0px";
+    }
+
+    const container = document.querySelector(".container");
+    container.innerHTML = "";
     container.appendChild(dogElement);
 }
+
 
 async function getMultiplePictures(){
     const dogApiUrl = "https://dog.ceo/api/breeds/image/random";
